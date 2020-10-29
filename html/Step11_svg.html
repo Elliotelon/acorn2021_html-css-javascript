@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step11_svg.html</title>
+    <style>
+        .container{
+            width: 768px;
+            margin: 0 auto; /* margin 위 아래 좌 우 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>이미지를 벡터 그래픽으로 만들어서 사용할 수 있다.</h1><!--이미지 크기를 변화시켜도 깨지지 않음-->
+        <!-- svg editor 사이트에서 이미지 만들고 이미지 저장하고 img로 불러오기-->
+        <img src="./images/tiger.svg"/>
+        <!-- svg editor 사이트에서 이미지 만들고 컨트롤 + U 눌러서 복사 붙여넣기-->
+        <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+            <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+            <g>
+             <title>background</title>
+             <rect fill="#fff" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+             <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+              <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+             </g>
+            </g>
+            <g>
+             <title>Layer 1</title>
+             <rect id="svg_3" height="83" width="128" y="153.45313" x="154" stroke-width="1.5" stroke="#000" fill="#fff"/>
+             <rect id="svg_4" height="90" width="140" y="209.45313" x="271" stroke-width="1.5" stroke="#000" fill="#fff"/>
+             <rect id="svg_5" height="68" width="105" y="283.45313" x="199" stroke-width="1.5" stroke="#000" fill="#fff"/>
+             <rect id="svg_6" height="113" width="129" y="337.45313" x="300" stroke-width="1.5" stroke="#000" fill="#fff"/>
+             <rect id="svg_7" height="96" width="145" y="295.45313" x="443" stroke-width="1.5" stroke="#000" fill="#fff"/>
+            </g>
+           </svg>
+    </div>
+</body>
+</html>
