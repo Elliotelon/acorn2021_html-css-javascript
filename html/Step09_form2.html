@@ -18,6 +18,7 @@
             <label>
                 <input type="radio" name="gender" value="woman"> 여자
             </label>
+            <!--name이 같아야 같은 그룹으로 묶인다.-->
         </fieldset>
         <fieldset>
             <legend>취미 정보 선택</legend>
@@ -37,7 +38,7 @@
         <label for="job">직업선택</label>
         <select name="job" id="job">
             <!-- option 요소에 value가 없으면 innertext 가 value 로 전송된다.-->
-            <option value="">선택</option>
+            <option value="">선택</option> <!--"" 빈문자열-->
             <option value="teacher">선생님</option>
             <option value="doctor">의사</option>
             <option value="developer">개발자</option>
