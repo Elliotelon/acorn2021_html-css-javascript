@@ -8,35 +8,35 @@
 <body>
     <h1>회원가입 폼 입니다.</h1>
     <form action="signup.jsp">
-        <label for="email"></label>이메일</label>
+        <label for="email">이메일</label>
         <input type="text" id="email" name="email"/><br/>
         <fieldset>
-            <legend>성별 정보 선택</legend>
+            <legend>성별 정보선택</legend>
             <label>
                 <input type="radio" name="gender" value="man" checked/> 남자
             </label>
             <label>
-                <input type="radio" name="gender" value="woman" /> 여자
+                <input type="radio" name="gender" value="woman"> 여자
             </label>
         </fieldset>
         <fieldset>
             <legend>취미 정보 선택</legend>
             <label>
-                <input type="checkbox" name="hobby" value="piano"/> 피아노 
+                <input type="checkbox" name="hobby" value="piano"/> 피아노
             </label>
             <label>
                 <input type="checkbox" name="hobby" value="carom"/> 당구
             </label>
             <label>
-                <input type="checkbox" name="hobby" value="beer" /> 맥주
+                <input type="checkbox" name="hobby" value="beer"/> 맥주
             </label>
             <label>
-                <input type="checkbox" name="hobby" value="etc" /> 기타
+                <input type="checkbox" name="hobby" value="etc"/> 기타
             </label>
         </fieldset>
-        
         <label for="job">직업선택</label>
         <select name="job" id="job">
+            <!-- option 요소에 value가 없으면 innertext 가 value 로 전송된다.-->
             <option value="">선택</option>
             <option value="teacher">선생님</option>
             <option value="doctor">의사</option>
@@ -46,11 +46,11 @@
         <br/>
         <label for="lunch">점심 메뉴 선택</label>
         <select name="lunch" id="lunch" multiple>
-            <!-- option 요소에 value 가 없으면 innerText 가 value  로 전송된다. -->
-            <option>자장면</option>
-            <option>짬뽕</option>
-            <option>군만두</option>
-            <option>탕수육</option>
+            <option value="">선택</option>
+            <option value="m1">자장면</option>
+            <option value="m2">짬뽕</option>
+            <option value="m3">군만두</option>
+            <option value="m4">탕수육</option>
         </select>
         <br/>
         <label for="coffee">커피 선택</label>

@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step09_form.html</title>
+    <title>Stpe09_form.html</title>
 </head>
 <body>
     <h1>폼 요소 작성하기</h1>
     <form action="login.jsp">
-        <label for="email">이메일</label>
+        <label for="email">이메일</label> 
         <input type="text" id="email" name="email">
+        <!--for="내용" 과 id="내용" 둘의 내용이 일치해야 함, 
+            name: 서버에서 읽어 낼때 필요함-->
         <label for="pwd">비밀번호</label>
         <input type="password" id="pwd" name="pwd">
         <button type="submit">로그인</button>
+        <!--form 안에 button type="submit" 인 버튼을 누르면 
+            버튼위의 내용이 login.jsp로 제출됨-->    
     </form>
 </body>
 </html>
