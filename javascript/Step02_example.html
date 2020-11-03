@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step02_example.html</title>
+</head>
+<body>
+    <h1>산술연산 예제</h1>
+    <input type="text" id="num1" placeholder="숫자 입력..."/>
+    <button onclick="plus();">+</button>
+    <button onclick="minus();">-</button>
+    <button onclick="multiple();">x</button>
+    <button onclick="divide();">/</button>
+    <input type="text" id="num2" placeholder="숫자 입력..."/>
+    <span>=</span>
+    <strong id="result">0</strong>
+
+    <script>
+        function plus(){
+            //1. id가 num1인 input 요소에 입력한 value 값 읽어오기
+
+            //2. id 가 num2인 input 요소에 입력한 value 값 읽어오기
+
+            //3. 위에서 읽어온 두값을 + 연산해서 결과값 얻어내기
+
+            //4. 얻어낸 결과 값을 id 가 result 인 요소에 innerText 로 넣어 주기
+              
+            document.querySelector("#result").innerText =parseFloat(document.querySelector("#num1").value) + parseFloat(document.querySelector("#num2").value);
+            //value 값은 문자로 읽음
+        }
+
+        function minus() {
+            document.querySelector("#result").innerText = parseFloat(document.querySelector("#num1").value) - parseFloat(document.querySelector("#num2").value);
+        }
+        function multiple() {
+            document.querySelector("#result").innerText = parseFloat(document.querySelector("#num1").value) * parseFloat(document.querySelector("#num2").value);
+        }
+        function divide() {
+            document.querySelector("#result").innerText = parseFloat(document.querySelector("#num1").value) / parseFloat(document.querySelector("#num2").value);
+        }
+    </script>
+
+</body>
+</html>
