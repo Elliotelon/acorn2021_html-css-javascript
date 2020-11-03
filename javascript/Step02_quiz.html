@@ -15,9 +15,13 @@
             count = count + 1
         }
         */
+        //페이지가 로딩되는 시점에 count 값을 0으로 초기화 하고
         var count=0
+        //함수가 호출될 때 마다
         function increase(){
+            //count 값을 1 증가 시키고
             count=count+1
+            //버튼의 innerText 에 count 값을 출력하기
             document.querySelector("#countBtn").innerText = count;
         }
     </script>
