@@ -19,6 +19,9 @@
             alert(name + " 님 환영합니다."); //매개변수 name은 마음대로 정할 수 있다.
                                             // welcome2(); 이렇게 실행하면 name 변수를 선언만 하고 값을 정하지 않았기 때문에 undefined 님 환영합니다. 로 알림창이 뜬다.
         };
+        var welcome3 = function(arg){
+            alert(arg + " 님 환영합니다.");
+        };
         function enter(){
             //1. id가 inputName인 요소에 입력한 문자열 읽어오기
             var name2=document.querySelector("#inputName").value;
@@ -29,6 +32,8 @@
             //4. id 가 inputName 인 요소에 포커스 주기
             document.querySelector("#inputName").focus();
         };
+
+     
     </script>
 </body>
 </html>
