@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step04_function2.html</title>
+</head>
+<body>
+    <h1>function 테스트중...</h1>
+    <input type="text" id="inputName" placeholder="이름입력..."/>
+    <button onclick="enter();">입장하기</button>
+    <script>
+        function welcome(){
+            alert("구라님 환영합니다.");
+        };
+        //함수의 인자를 전달 받을 매개변수 name 정의하기.
+        function welcome2(name){
+            //name에는 함수를 호출하면서 전달한 값이 들어있다.
+            alert(name + " 님 환영합니다."); //매개변수 name은 마음대로 정할 수 있다.
+                                            // welcome2(); 이렇게 실행하면 name 변수를 선언만 하고 값을 정하지 않았기 때문에 undefined 님 환영합니다. 로 알림창이 뜬다.
+        };
+        function enter(){
+            //1. id가 inputName인 요소에 입력한 문자열 읽어오기
+            var name2=document.querySelector("#inputName").value;
+            //2. welcome2() 함수 호출하면서 전달하기
+            welcome2(name2);
+        };
+
+    </script>
+</body>
+</html>
