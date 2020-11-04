@@ -24,8 +24,11 @@
             var name2=document.querySelector("#inputName").value;
             //2. welcome2() 함수 호출하면서 전달하기
             welcome2(name2);
+            //3. id 가 inputName 인 요소에 입력한 문자열 지우기
+            document.querySelector("#inputName").value = "";
+            //4. id 가 inputName 인 요소에 포커스 주기
+            document.querySelector("#inputName").focus();
         };
-
     </script>
 </body>
 </html>
