@@ -27,6 +27,13 @@
             let obj = {num:1, name:"김구라", addr:"노량진"};
             return obj;
         };
+        /*mem1= d();
+          mem2= d();
+          mem1 == mem2 같을까? 다르다!! 
+          이유 : d함수를 호출할때마다 새로운 obj가 힙영역에 저장되므로 참조값이 달라진다.
+          mem1과 mem2 같게 만드려면 function 밖에 script영역에 let obj = {num:1, name:"김구라", addr:"노량진"};
+          을 정의 해놓고 사용하면 된다.
+          */
         // array type을 리턴해주는 함수
         function e(){
             console.log("e() 함수 호출됨");
