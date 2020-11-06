@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_EventListener.html</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red; /* dashed, dotted, solid*/
+        }
+    </style>
+</head>
+<body>
+    <h1>EventListener 테스트</h1>
+    <button onclick="clicked();">눌러보셈</button>
+    <button id="myBtn">눌러보셈2</button>
+    <div class="box" id="myDiv"></div>
+    <div class="box"></div>
+    
+    <script>
+        function clicked(){
+            alert("버튼을 눌렀네요?");
+        }; //이렇게 하면 global 영역에만들어야 하므로 실제로 프로젝트 할때는 이렇게 하면안됨!
+
+        document.querySelector("#myBtn").addEventListener("click", function(){
+            alert("버튼을 눌렀네요?");
+        }); 
+        //addEventListener("event name", function(){event발생시 수행할 작동내용})  << event가 발생했을때 함수가 수행되는 함수 : 콜백함수(call back function)
+        //실제로 작업할때는 이런식으로 global 영역에 함수를 만들지말고 이런식으로 콜백함수 형태로 만들어야함.
+        
+        document.querySelector("#myDiv").addEventListener("click", function(){
+            document.querySelector("#myDiv").innerText = "clicked!";
+        });
+    </script>
+</body>
+</html>
