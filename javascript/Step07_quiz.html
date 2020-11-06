@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_quiz.html</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red; /* dashed, dotted, solid*/
+            float: left;
+        }
+    </style> 
+</head>
+<body>
+    <h1>EventListener 테스트중...</h1>
+    <div class="box"></div> <!--div.box*20-->
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script>
+        // for(let i=0; i<20; i++){
+        //     document.querySelectorAll("div")[i].addEventListener("click", function(){
+        //     this.innerText="clicked!";
+        //     });
+        // };
+        let arr=document.querySelectorAll("div");
+        arr.forEach(function(item, index){
+            document.querySelectorAll("div")[index].addEventListener("click", function(){
+                this.innerText="clicked!";
+            });
+        });
+        
+    </script>    
+</body>
+</html>

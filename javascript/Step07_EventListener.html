@@ -32,7 +32,9 @@
         //실제로 작업할때는 이런식으로 global 영역에 함수를 만들지말고 이런식으로 콜백함수 형태로 만들어야함.
         
         document.querySelector("#myDiv").addEventListener("click", function(){
-            document.querySelector("#myDiv").innerText = "clicked!";
+            //document.querySelector("#myDiv").innerText = "clicked!"; >> <div class="box" id="myDiv">clicked!</div>
+            this.innerText="clicked!"; // >> <div class="box" id="myDiv">clicked!</div> 
+            // this=<div class="box" id="myDiv"></div>    
         });
     </script>
 </body>
