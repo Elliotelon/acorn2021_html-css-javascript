@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_EventListener3.html</title>
+</head>
+<body>
+    <h1>key event 처리</h1>
+    <input type="text" id="inputMsg" placeholder="메세지 입력..."/>
+    <p id="result"></p>
+    <ul id="msgList">
+
+    </ul>
+    <script>
+        // document.querySelector("#inputMsg").addEventListener("keydown", function(event){
+        //     console.log(event);
+        // });
+
+        // document.querySelector("#inputMsg").addEventListener("keydown", function(event){
+        //     if(event.key == "Enter"){ //event가 오브젝트!!
+        //         let text1= this.value;
+        //         document.querySelector("#result").innerText = text1;
+        //     };
+        // });
+
+        document.querySelector("#inputMsg").addEventListener("keydown", function(event){
+            if(event.key == "Enter"){
+                let li1 = document.createElement("li"); 
+                li1.innerText = this.value;
+                document.querySelector("#msgList").append(li1);
+            };
+        });
+    </script>
+</body>
+</html>

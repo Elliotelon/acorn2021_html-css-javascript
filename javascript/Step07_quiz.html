@@ -37,17 +37,20 @@
     <div class="box"></div>
     <div class="box"></div>
     <script>
-        // for(let i=0; i<20; i++){
-        //     document.querySelectorAll("div")[i].addEventListener("click", function(){
-        //     this.innerText="clicked!";
-        //     });
-        // };
-        let arr=document.querySelectorAll("div");
-        arr.forEach(function(item, index){
-            document.querySelectorAll("div")[index].addEventListener("click", function(){
-                this.innerText="clicked!";
+        //반복문 돌면서
+        for(let i=0; i<20; i++){
+            //모든 div 요소에 click 이벤트가 일어났을때 실행할 함수를 등록한다.
+            document.querySelectorAll("div")[i].addEventListener("click", function(){
+            this.innerText="clicked!";
             });
-        });
+        };
+        
+        // let arr=document.querySelectorAll("div");
+        // arr.forEach(function(item, index){
+        //     document.querySelectorAll("div")[index].addEventListener("click", function(){
+        //         this.innerText="clicked!";
+        //     });
+        // });
         
     </script>    
 </body>
