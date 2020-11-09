@@ -7,6 +7,8 @@
     <style>
         canvas{
             border: 1px dashed gray;
+            /* cursor: crosshair; */
+            /* crosshair, not-allowed */
         }
     </style>
 </head>
@@ -15,26 +17,40 @@
     <canvas id="myCanvas" width="500" height="500"></canvas>
     <br/>
     <input type="color" id="inputColor"/>
-    <select name="font-weight" id="fontWeight">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        
+    <select id="lineWidth">
+        <!--option{$}*10 -->
+         <option >1</option>
+         <option >2</option>
+         <option >3</option>
+         <option >4</option>
+         <option selected>5</option> <!-- 초기값 설정 selected-->
+         <option >6</option>
+         <option >7</option>
+         <option >8</option>
+         <option >9</option>
+         <option >10</option>  
     </select>
+    <button id="fillBackBtn">배경색</button>
+    <label>
+        지우개기능
+        <input type="checkbox" id="eraseCheck"/>
+    </label>
     <script>
         //canvas 요소의 참조값 얻어오기
         let canvas = document.querySelector("#myCanvas");
         //canvas에 렌더링 할 수 있는 도구(context)의 참조값 얻어오기
         let context =canvas.getContext("2d");
 
-        //선의 굵기
-       
-        context.lineWidth=10;
+        //페이지 로딩 시점에 선의 굵기 초기값 지정하기
+        let currentWidth=5;
 
-        document.querySelector("#font-weight").addEventListener("mousedown", function(){
-            context.lineWidth=20;
+        //변수에 저장된 값으로 선의 굵기 지정
+        context.lineWidth = currentWidth;
+        
+        // select 요소에 change 이벤트가 발생했을때 실행할 함수 등록
+        document.querySelector("#lineWidth").addEventListener("change", function(){
+            //change 이벤트가 일어난 요소의 value 값을 변수에 대입
+            currentWidth = this.value;
         })
 
         // })
@@ -52,8 +68,6 @@
             color=this.value;
         });
 
-        
-
         // context.beginPath();
         // context.moveTo(100, 100);
         // context.lineTo(200, 200);
@@ -62,11 +76,19 @@
         // context.closePath();
 
         //현재 그림을 그리고 있는지 여부
-        let isDraw =false; //초기값은 일단 false로 지정;
+        // let isDraw =false; //초기값은 일단 false로 지정;
+        
+        //마우스가 down상태인지 여부
+        let isMouseDown=false;
+
+        //그림을 그리는 상태인지 자우는 상태인지 여부
+        //true => 그림을 그리는 상태, false=> 지우는상태
+        let isErase=false;
 
         canvas.addEventListener("mousedown", function(event){//mousedown:클릭을 했을때!!
-            //그리고 있는 상태로 바꿔준다.
-            isDraw=true;
+            //마우스 down 상태로 바꿔준다.
+            isMouseDown=true;
+
             //이벤트가 일어난곳의 좌표
             let x = event.offsetX;
             let y = event.offsetY;
@@ -78,22 +100,55 @@
 
         //canvas에 mousemove 이벤트 처리
         canvas.addEventListener("mousemove", function(event){
-            //만일 현재 그림을 그리고 있는 상태일때;
-            if(isDraw==true){
+            //만일 마우스 down 상태일때;
+            if(isMouseDown==true){
                 //이벤트가 일어난곳의 좌표
                 let x = event.offsetX;
                 let y = event.offsetY;
+                
+                if(isErase==true){//만일 지우는 상태이면
+
+                    context.clearRect(x, y, 20, 20);
+                }else{//지우는 작업 상태가 아니라면(그리는 상태라면)
+                      
                 context.lineTo(x, y);
                 context.stroke();
                 //변수에 저장된 값으로 색상 지정
                 context.strokeStyle=color;
-            };       
+                //변수에 저장된 값으로 선의 두께 지정
+                context.lineWidth= currentWidth;
+                }
+            };           
         });
 
         canvas.addEventListener("mouseup", function(){//mouseup: 클릭을 하지않을때!!
-            //더이상 드려지지 않도록 상태값을 바꿔준다.
-            isDraw=false;
-        });  
+            //더이상 작업(그림or지우기)하지 않도록 상태값을 바꿔준다.
+            isMouseDown=false;
+        });
+        
+        // context.fillStyle = "#ff00ff"; //채우는 색깔
+        // context.fillRect(0, 0, 500, 500); //fillRect(x, y, width, height)
+
+        //배경색상 버튼을 눌렀을때 실행할 함수 등록
+        document.querySelector("#fillBackBtn").addEventListener("click", function(){
+            //현재 선택된 색상을 채울 색으로 지정하고
+            context.fillStyle = color;
+            //fillRect(x, y, width, height)로 지정된 사각형 영역을 채운다.
+            context.fillRect(0, 0, 500, 500);
+        });
+
+        // context.clearRect(0, 0, 50, 50); //clearRect(x, y, width, height)
+        
+        // 체크박스의 상태가 바뀌었을때 호출되는 함수 등록    
+        document.querySelector("#eraseCheck").addEventListener("change", function(){
+            //체크여부를 true or false)변수에 담는다.
+            isErase=this.checked; //checked >> 체크하면 true리턴 checked 체크안하면 >>false 리턴.
+            if(isErase){
+                document.querySelector("#myCanvas").style.cursor = "not-allowed";
+            }else{
+                document.querySelector("#myCanvas").style.cursor = "crosshair";
+            }
+        });
     </script>
 </body>
 </html>
