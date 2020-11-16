@@ -37,6 +37,14 @@
         document.querySelector("#btn").addEventListener("click", function(){
             alert(1234);
         });
+
+        //알림 닫기 버튼을 누르면 실행할 함수 등록
+        //"close.bs.alert"는 bootstrap4에서 임의로 발생시키는 이벤트
+        $(".alert").on("close.bs.alert", function(){
+            //원하는 작업이 있다면 여기서 하면 된다.
+            alert("close!");
+        });
     </script>
+
 </body>
 </html>
